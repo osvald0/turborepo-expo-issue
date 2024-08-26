@@ -3,14 +3,38 @@
     "version": ">= 10.2.4"
   },
   "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal"
+    "production": {
+      "channel": "production",
+      "android": {
+        "config": "android-build-with-credentials.yml",
+        "image": "default"
+      },
+      "ios": {
+        "config": "ios-build-with-credentials.yml",
+        "image": "default"
+      }
     },
-    "preview": {
-      "distribution": "internal"
+    "production-and-development-builds-together": {
+      "android": {
+        "config": "production-and-development-builds-together-android.yml"
+      },
+      "ios": {
+        "config": "production-and-development-builds-together-ios.yml"
+      }
     },
-    "production": {}
+    "development-build": {
+      "channel": "development",
+      "distribution": "internal",
+      "android": {
+        "config": "android-build-without-credentials.yml",
+        "image": "default"
+      },
+      "ios": {
+        "simulator": true,
+        "config": "ios-simulator-build.yml",
+        "image": "default"
+      }
+    }
   },
   "submit": {
     "production": {}
